@@ -48,8 +48,8 @@ export default function Root() {
             
 
             <Form method="post">
-            <button type="submit">New</button>
-          </Form>
+             <button type="submit">New</button>
+            </Form>
           </div>
           <nav>
           {contacts.length ? (
@@ -58,12 +58,12 @@ export default function Root() {
                 <li key={contact.id}>
                   <Link to={`contacts/${contact.id}`}>
                     {contact.first || contact.last ? (
-                      <>
-                        {contact.first} {contact.last}
-                      </>
-                    ) : (
-                      <i>No Name</i>
-                    )}{" "}
+                        <>
+                            {contact.first} {contact.last}
+                        </>
+                        ) : (
+                             <i>No Name</i>
+                        )}{" "}
                     {contact.favorite && <span>★</span>}
                   </Link>
                 </li>
@@ -76,11 +76,8 @@ export default function Root() {
           )}
           </nav>
         </div>
-        <div id="detail"> <Outlet /></div>
 
-        
-       
-     
+        <div id="detail"> <Outlet/></div>
       </>
     );
   }
