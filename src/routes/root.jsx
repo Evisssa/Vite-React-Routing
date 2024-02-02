@@ -46,7 +46,6 @@ export default function Root() {
               ></div>
             </form>
             
-
             <Form method="post">
              <button type="submit">New</button>
             </Form>
