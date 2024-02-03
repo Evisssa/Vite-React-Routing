@@ -2,13 +2,19 @@ import { Form, useLoaderData } from "react-router-dom";
 import { getContact } from "../contacts";
 
 export async function loader({ params }) {
-    const contact = await getContact(params.contactId);
+   // const { contact } = useLoaderData();
+
+   const contact = await getContact(params.contactId);
+   
     return { contact };
   }
 
 export default function Contact() {
-   const contact =useLoaderData();
-   console.log('emri',contact.first)
+
+  const { contact } = useLoaderData();
+
+ // const contact =useLoaderData();
+  //console.log('emri',contact.first)
   return (
     <div id="contact">
       <div>

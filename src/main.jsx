@@ -34,7 +34,7 @@ const router = createBrowserRouter([
         element: <EditContact/>,
         loader:contactLoader,
         action: editAction,
-        //errorElement: <ErrorPage />,
+        errorElement: <ErrorPage />,
       },
 
     ]
