@@ -7,7 +7,8 @@ import {
 import "./index.css";
 import ErrorPage from "./error-page";
 
-import Contact ,{loader as contactLoader
+import Contact ,{loader as contactLoader,
+                 action as contactAction,
                 }from "./routes/contact";
 import Root, { loader as rootLoader, 
                action as rootAction
@@ -23,28 +24,34 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     loader: rootLoader,
     action: rootAction,
+
     children:[
+      {  errorElement: <ErrorPage />,
+        children:[
 
+          {index:true, element:<Index/>},
+          {
+            path: "/contacts/:contactId",
+            element: <Contact/>,
+            loader:contactLoader,
+            action: contactAction,
+            //errorElement: <ErrorPage />,
+          },
+          {
+            path: "/contacts/:contactId/edit",
+            element: <EditContact/>,
+            loader:contactLoader,
+            action: editAction,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: "contacts/:contactId/destroy",
+            action: destroyAction,
+          },
+    
+        ]
 
-      {index:true, element:<Index/>},
-      {
-        path: "/contacts/:contactId",
-        element: <Contact/>,
-        loader:contactLoader,
-        //errorElement: <ErrorPage />,
-      },
-      {
-        path: "/contacts/:contactId/edit",
-        element: <EditContact/>,
-        loader:contactLoader,
-        action: editAction,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "contacts/:contactId/destroy",
-        action: destroyAction,
-      },
-
+      }
     ]
   },
   
